@@ -1,0 +1,361 @@
+{
+  "name": "key",
+  "type": "ARM",
+  "dependenceList": [],
+  "srcDirs": [
+    "../Devices"
+  ],
+  "virtualFolder": {
+    "name": "<virtual_root>",
+    "files": [],
+    "folders": [
+      {
+        "name": "Application",
+        "files": [],
+        "folders": [
+          {
+            "name": "MDK-ARM",
+            "files": [
+              {
+                "path": "startup_stm32g0b1xx.s"
+              }
+            ],
+            "folders": []
+          },
+          {
+            "name": "User",
+            "files": [],
+            "folders": [
+              {
+                "name": "Core",
+                "files": [
+                  {
+                    "path": "../Core/Src/gpio.c"
+                  },
+                  {
+                    "path": "../Core/Src/dma.c"
+                  },
+                  {
+                    "path": "../Core/Src/i2s.c"
+                  },
+                  {
+                    "path": "../Core/Src/spi.c"
+                  },
+                  {
+                    "path": "../Core/Src/tim.c"
+                  },
+                  {
+                    "path": "../Core/Src/usb_drd_fs.c"
+                  },
+                  {
+                    "path": "../Core/Src/stm32g0xx_it.c"
+                  },
+                  {
+                    "path": "../Core/Src/stm32g0xx_hal_msp.c"
+                  },
+                  {
+                    "path": "../Core/Src/main.cpp"
+                  },
+                  {
+                    "path": "../user/program.cpp"
+                  }
+                ],
+                "folders": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Drivers",
+        "files": [],
+        "folders": [
+          {
+            "name": "STM32G0xx_HAL_Driver",
+            "files": [
+              {
+                "path": "../Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_i2s.c"
+              },
+              {
+                "path": "../Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc.c"
+              },
+              {
+                "path": "../Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc_ex.c"
+              },
+              {
+                "path": "../Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_ll_rcc.c"
+              },
+              {
+                "path": "../Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash.c"
+              },
+              {
+                "path": "../Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash_ex.c"
+              },
+              {
+                "path": "../Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_gpio.c"
+              },
+              {
+                "path": "../Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma.c"
+              },
+              {
+                "path": "../Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma_ex.c"
+              },
+              {
+                "path": "../Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_pwr.c"
+              },
+              {
+                "path": "../Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_pwr_ex.c"
+              },
+              {
+                "path": "../Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_cortex.c"
+              },
+              {
+                "path": "../Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal.c"
+              },
+              {
+                "path": "../Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_exti.c"
+              },
+              {
+                "path": "../Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_spi.c"
+              },
+              {
+                "path": "../Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_spi_ex.c"
+              },
+              {
+                "path": "../Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_tim.c"
+              },
+              {
+                "path": "../Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_tim_ex.c"
+              },
+              {
+                "path": "../Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_pcd.c"
+              },
+              {
+                "path": "../Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_pcd_ex.c"
+              },
+              {
+                "path": "../Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_ll_usb.c"
+              }
+            ],
+            "folders": []
+          },
+          {
+            "name": "CMSIS",
+            "files": [
+              {
+                "path": "../Core/Src/system_stm32g0xx.c"
+              }
+            ],
+            "folders": []
+          }
+        ]
+      }
+    ]
+  },
+  "outDir": "build",
+  "deviceName": null,
+  "packDir": null,
+  "miscInfo": {
+    "uid": "92abcc69c46623796b6b7ad96d6b4bef"
+  },
+  "targets": {
+    "key": {
+      "excludeList": [
+        "../../LCD_G0B1/Devices/Draw.cpp",
+        "../Devices/Draw.cpp"
+      ],
+      "toolchain": "AC6",
+      "compileConfig": {
+        "cpuType": "Cortex-M0+",
+        "floatingPointHardware": "none",
+        "useCustomScatterFile": false,
+        "scatterFilePath": "<YOUR_SCATTER_FILE>.sct",
+        "storageLayout": {
+          "RAM": [
+            {
+              "tag": "IRAM",
+              "id": 1,
+              "mem": {
+                "startAddr": "0x20000000",
+                "size": "0x20000"
+              },
+              "isChecked": true,
+              "noInit": false
+            }
+          ],
+          "ROM": [
+            {
+              "tag": "IROM",
+              "id": 1,
+              "mem": {
+                "startAddr": "0x08000000",
+                "size": "0x20000"
+              },
+              "isChecked": true,
+              "isStartup": true
+            }
+          ]
+        },
+        "options": "null",
+        "archExtensions": ""
+      },
+      "uploader": "STLink",
+      "uploadConfig": {
+        "bin": "",
+        "proType": "SWD",
+        "resetMode": "default",
+        "runAfterProgram": true,
+        "speed": 4000,
+        "address": "0x08000000",
+        "elFile": "None",
+        "optionBytes": ".eide/key.st.option.bytes.ini",
+        "otherCmds": ""
+      },
+      "uploadConfigMap": {
+        "JLink": {
+          "bin": "",
+          "baseAddr": "",
+          "cpuInfo": {
+            "vendor": "null",
+            "cpuName": "null"
+          },
+          "proType": 1,
+          "speed": 8000,
+          "otherCmds": ""
+        }
+      },
+      "custom_dep": {
+        "name": "default",
+        "incList": [
+          "../Core/Inc",
+          "../Drivers/STM32G0xx_HAL_Driver/Inc",
+          "../Drivers/STM32G0xx_HAL_Driver/Inc/Legacy",
+          "../Drivers/CMSIS/Device/ST/STM32G0xx/Include",
+          "../Drivers/CMSIS/Include",
+          ".cmsis/include",
+          "RTE/_key",
+          "../Devices/display/interfaces",
+          "../Devices/display/st7735s/inc",
+          "../user/inc"
+        ],
+        "libList": [],
+        "defineList": [
+          "USE_HAL_DRIVER",
+          "STM32G0B1xx"
+        ]
+      },
+      "builderOptions": {
+        "AC5": {
+          "version": 3,
+          "beforeBuildTasks": [],
+          "afterBuildTasks": [],
+          "global": {
+            "output-debug-info": "enable",
+            "use-microLIB": true
+          },
+          "c/cpp-compiler": {
+            "optimization": "level-0",
+            "language-c": "c99",
+            "language-cpp": "c++17",
+            "one-elf-section-per-function": true,
+            "split-load-and-store-multiple": true,
+            "short-enums#wchar": true,
+            "use-rtti": true,
+            "warnings": "ac5-like-warnings",
+            "misc-controls": "-fno-exceptions -ffunction-sections -fdata-sections",
+            "link-time-optimization": true
+          },
+          "asm-compiler": {
+            "$use": "asm-auto"
+          },
+          "linker": {
+            "output-format": "elf",
+            "misc-controls": "--diag_suppress=L6329"
+          }
+        },
+        "AC6": {
+          "version": 3,
+          "beforeBuildTasks": [],
+          "afterBuildTasks": [],
+          "global": {
+            "output-debug-info": "enable",
+            "use-microLIB": true
+          },
+          "c/cpp-compiler": {
+            "optimization": "level-3",
+            "language-c": "c99",
+            "language-cpp": "c++17",
+            "one-elf-section-per-function": true,
+            "short-enums#wchar": true,
+            "use-rtti": true,
+            "warnings": "ac5-like-warnings",
+            "misc-controls": "-fno-exceptions -ffunction-sections -fdata-sections",
+            "link-time-optimization": true,
+            "plain-char-is-signed": true
+          },
+          "asm-compiler": {
+            "$use": "asm-auto"
+          },
+          "linker": {
+            "output-format": "elf",
+            "misc-controls": "--diag_suppress=L6329"
+          }
+        },
+        "IAR_ARM": {
+          "version": 1,
+          "beforeBuildTasks": [],
+          "afterBuildTasks": [],
+          "global": {
+            "endian-mode": "little",
+            "runtime-lib": "normal",
+            "printf-formatter": "auto",
+            "scanf-formatter": "auto",
+            "output-debug-info": "enable"
+          },
+          "c/cpp-compiler": {
+            "optimization": "no",
+            "destroy-cpp-static-object": true
+          },
+          "asm-compiler": {
+            "case-sensitive-user-symbols": true
+          },
+          "linker": {
+            "output-format": "elf",
+            "auto-search-runtime-lib": true,
+            "perform-cpp-virtual-func-elimination": "enable",
+            "config-defines": []
+          }
+        },
+        "GCC": {
+          "version": 3,
+          "beforeBuildTasks": [],
+          "afterBuildTasks": [],
+          "global": {
+            "output-debug-info": "enable",
+            "use-microLIB": true
+          },
+          "c/cpp-compiler": {
+            "optimization": "level-0",
+            "language-c": "c99",
+            "language-cpp": "c++17",
+            "one-elf-section-per-function": true,
+            "split-load-and-store-multiple": true,
+            "short-enums#wchar": true,
+            "use-rtti": true,
+            "warnings": "ac5-like-warnings",
+            "misc-controls": "-fno-exceptions -ffunction-sections -fdata-sections",
+            "link-time-optimization": true
+          },
+          "asm-compiler": {
+            "$use": "asm-auto"
+          },
+          "linker": {
+            "output-format": "elf",
+            "misc-controls": "--diag_suppress=L6329"
+          }
+        }
+      }
+    }
+  },
+  "version": "3.6"
+}
