@@ -93,34 +93,16 @@ void setLEDColor_rgbw(size_t pos, uint32_t color) {
  */
 void read_key() {
     SR_IN_ENABLE(0);
-    HAL_Delay(1);
+    __NOP();
     SR_IN_ENABLE(1);
 
     
     SR_CLK_ENABLE(0);
-    HAL_Delay(1);
+    __NOP();
 
     HAL_SPI_Receive_DMA(&hspi3, &key_buffer, 1);
     while (HAL_SPI_GetState(&hspi3) != HAL_SPI_STATE_READY);
     SR_CLK_ENABLE(1);
-}
-
-/**
- * @brief 初始化LED数据缓冲区[预填充低亮度白色合重置等待数据], 启动PWM和编码器
- * @retval 无
- */
-void init() {
-    for (size_t i = LED_BUFFER_SIZE - WS2812_DELAY; i < LED_BUFFER_SIZE; i++) {
-        buffer[i] = 0x00000000;
-    }
-
-    for (size_t i = 0; i < LED_NUM; i++) {
-        setLEDColor_rgba(i, 0xFFFFFF10);
-    }
-
-    HAL_TIM_PWM_Start_DMA(&htim2, TIM_CHANNEL_1, (uint32_t*)buffer, LED_BUFFER_SIZE);
-    HAL_TIM_Encoder_Start(&htim1, TIM_CHANNEL_1 | TIM_CHANNEL_2);
-    HAL_TIM_Encoder_Start(&htim3, TIM_CHANNEL_1 | TIM_CHANNEL_2);
 }
 
 /**
@@ -173,6 +155,23 @@ uint32_t getColor(float x) {
     return color_lerp(n, color_prev, color_next);
 }
 
+/**
+ * @brief 初始化LED数据缓冲区[预填充低亮度白色合重置等待数据], 启动PWM和编码器
+ * @retval 无
+ */
+void init() {
+    for (size_t i = LED_BUFFER_SIZE - WS2812_DELAY; i < LED_BUFFER_SIZE; i++) {
+        buffer[i] = 0x00000000;
+    }
+
+    for (size_t i = 0; i < LED_NUM; i++) {
+        setLEDColor_rgbw(i, 0xFFFFFF10);
+    }
+
+    HAL_TIM_PWM_Start_DMA(&htim2, TIM_CHANNEL_1, (uint32_t*)buffer, LED_BUFFER_SIZE);
+    HAL_TIM_Encoder_Start(&htim1, TIM_CHANNEL_1 | TIM_CHANNEL_2);
+    HAL_TIM_Encoder_Start(&htim3, TIM_CHANNEL_1 | TIM_CHANNEL_2);
+}
 
 /**
  * @brief 主循环函数
@@ -184,9 +183,9 @@ void run() {
     float ci = 0;
     float l = 0;
 
-    static float f = 1.0f / (float)(LED_NUM * 8);
+    static float f = 1.0f / (float)(LED_NUM * 4);
     while (true) {
-        Test();
+        read_key();
         if (HAL_GPIO_ReadPin(ENC1_C_GPIO_Port, ENC1_C_Pin)!= GPIO_PIN_SET) {
             __HAL_TIM_SET_COUNTER(&htim1, 0);
         }
@@ -200,7 +199,7 @@ void run() {
         LED(!HAL_GPIO_ReadPin(LED_GPIO_Port, LED_Pin));
 
         for (size_t i = 0; i < LED_NUM; i++) {
-			setLEDColor_rgba(i, (((key_buffer >> i)& 0x01)== 1)? getColor((f *(float)i + ci)) | a : 0x0000FF00 | a);
+			setLEDColor_rgbw(i, (((key_buffer >> i)& 0x01)== 1)? getColor((f *(float)i + ci)) | a : 0x0000FF00 | a);
             ci += l;
             if (ci >= 1) {
                 ci = 0;

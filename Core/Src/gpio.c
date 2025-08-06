@@ -88,7 +88,7 @@ void MX_GPIO_Init(void)
   GPIO_InitStruct.Pin = LCD_DC_Pin|LCD_RES_Pin|LCD_CS_Pin|LCD_LED_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
-  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_HIGH;
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
   /*Configure GPIO pins : PA7 PA10 PA15 */
@@ -121,14 +121,14 @@ void MX_GPIO_Init(void)
   GPIO_InitStruct.Pin = FLASH_CS_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
-  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_HIGH;
   HAL_GPIO_Init(FLASH_CS_GPIO_Port, &GPIO_InitStruct);
 
   /*Configure GPIO pins : SR_IE_Pin SR_CE_Pin */
   GPIO_InitStruct.Pin = SR_IE_Pin|SR_CE_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
-  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_HIGH;
   HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
 
 }

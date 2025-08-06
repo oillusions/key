@@ -236,7 +236,10 @@
           "RTE/_key",
           "../Devices/display/interfaces",
           "../Devices/display/st7735s/inc",
-          "../user/inc"
+          "../user/inc",
+          "../Devices/input/interfaces",
+          "../Devices/input/74hc165/inc",
+          "../Devices/input/encoder/inc"
         ],
         "libList": [],
         "defineList": [
